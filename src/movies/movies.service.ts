@@ -1,4 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { NOTFOUND_MESSAGE } from 'src/const';
 import { CreateMovieDto } from './dto/create-video.dto';
 import { UpdateMovieDto } from './dto/update-video.dto';
 import { Movie } from './entities/movie.entity';
@@ -17,7 +18,7 @@ export class MoviesService {
       = this.movies.find((movie: Movie) => movie.id === +id);
     
     if(!seltectedMovie) {
-      throw new NotFoundException(`Movie with id ${id} not found.`);  
+      throw new NotFoundException(NOTFOUND_MESSAGE(id));
     }
     
     return seltectedMovie;
