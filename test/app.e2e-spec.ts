@@ -4,7 +4,6 @@ import * as request from 'supertest';
 import { AppModule } from './../src/app.module';
 import { HOME_MESSAGE } from '../src/const';
 import { CreateMovieDto } from 'src/movies/dto/create-video.dto';
-import { Movie } from '../src/movies/entities/movie.entity';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
@@ -77,7 +76,5 @@ describe('AppController (e2e)', () => {
         .send(newMovie)
         .expect(201);
     });
-
-    
   })
 });
